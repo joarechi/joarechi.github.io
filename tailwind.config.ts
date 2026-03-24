@@ -6,21 +6,17 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: "class",
   theme: {
     extend: {
       fontFamily: {
         sans: ["Inter", "sans-serif"],
-      },
-      colors: {
-        accent: {
-          DEFAULT: "#6366f1",
-          dark: "#818cf8",
-        },
+        mono: ["'Courier New'", "monospace"],
       },
       animation: {
-        "fade-in": "fadeIn 0.6s ease-in-out",
-        "slide-up": "slideUp 0.6s ease-out",
+        "fade-in": "fadeIn 0.7s ease-out forwards",
+        "slide-up": "slideUp 0.7s ease-out forwards",
+        "slide-up-2": "slideUp 0.7s ease-out 0.15s forwards",
+        "slide-up-3": "slideUp 0.7s ease-out 0.3s forwards",
       },
       keyframes: {
         fadeIn: {
@@ -28,7 +24,7 @@ const config: Config = {
           "100%": { opacity: "1" },
         },
         slideUp: {
-          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "0%": { opacity: "0", transform: "translateY(28px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
