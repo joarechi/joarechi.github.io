@@ -4,8 +4,8 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "마스터 | 포트폴리오",
-  description: "풀스택 개발자 포트폴리오 — Next.js, NestJS, Flutter, React Native",
+  title: "조두현 | 백엔드 개발자 포트폴리오",
+  description: "11년 경력 백엔드 개발자 조두현의 포트폴리오 — Java, Spring, NestJS, API 연동 전문",
 };
 
 export default function RootLayout({

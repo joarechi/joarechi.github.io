@@ -6,6 +6,7 @@ import { Sun, Moon, Menu, X } from "lucide-react";
 
 const navLinks = [
   { href: "#about", label: "소개" },
+  { href: "#career", label: "경력" },
   { href: "#projects", label: "프로젝트" },
   { href: "#skills", label: "기술 스택" },
   { href: "#contact", label: "연락처" },
@@ -35,7 +36,7 @@ export default function Navbar() {
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="text-xl font-bold text-gradient">
-          마스터
+          조두현
         </a>
 
         {/* Desktop Links */}
