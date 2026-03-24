@@ -1,6 +1,7 @@
 "use client";
 
-import { Github, Mail, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { Github, Mail, ArrowRight, ChevronDown } from "lucide-react";
 
 // ============================================================
 // 본인 정보
@@ -158,6 +159,20 @@ const EXPERIENCE = [
   },
 ];
 
+// 연도별 그룹핑 (EXPERIENCE 순서 유지)
+const EXPERIENCE_BY_YEAR = EXPERIENCE.reduce<{ year: string; items: typeof EXPERIENCE }[]>(
+  (acc, item) => {
+    const existing = acc.find((g) => g.year === item.year);
+    if (existing) {
+      existing.items.push(item);
+    } else {
+      acc.push({ year: item.year, items: [item] });
+    }
+    return acc;
+  },
+  []
+);
+
 const SKILLS = [
   {
     category: "Backend Expert",
@@ -183,6 +198,22 @@ const SKILLS = [
 // ============================================================
 
 export default function Home() {
+  const [openYears, setOpenYears] = useState<Set<string>>(
+    new Set(["2025", "2024"])
+  );
+
+  const toggleYear = (year: string) => {
+    setOpenYears((prev) => {
+      const next = new Set(prev);
+      if (next.has(year)) {
+        next.delete(year);
+      } else {
+        next.add(year);
+      }
+      return next;
+    });
+  };
+
   return (
     <main className="min-h-screen bg-white">
 
@@ -429,60 +460,119 @@ export default function Home() {
           <h2 className="text-4xl font-black text-slate-900 mb-3">경력 타임라인</h2>
           <p className="text-gray-400 mb-16">2015 – 2025 · 10년간의 주요 커리어</p>
 
-          <div className="space-y-4">
-            {EXPERIENCE.map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-indigo-200 hover:shadow-md transition-all"
-              >
-                <div className="flex flex-wrap items-center gap-2.5 mb-3">
-                  <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full">
-                    {item.year}
-                  </span>
-                  <h3 className="text-base font-bold text-slate-900">{item.title}</h3>
-                  <span
-                    className={`text-xs px-2.5 py-1 rounded-full font-semibold ${
-                      item.type === "Work"
-                        ? "bg-blue-50 text-blue-600"
-                        : "bg-emerald-50 text-emerald-600"
-                    }`}
+          <div className="space-y-3">
+            {EXPERIENCE_BY_YEAR.map(({ year, items }) => {
+              const isOpen = openYears.has(year);
+              return (
+                <div
+                  key={year}
+                  className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-indigo-100 transition-colors"
+                >
+                  {/* ── 연도 헤더 (클릭 토글) ── */}
+                  <button
+                    onClick={() => toggleYear(year)}
+                    className="w-full flex items-center justify-between px-6 py-5 hover:bg-gray-50 transition-colors text-left"
                   >
-                    {item.type === "Work" ? "Career" : "Project"}
-                  </span>
-                  <span className="ml-auto text-xs text-gray-400 font-medium">{item.period}</span>
-                </div>
-
-                <p className="text-gray-500 text-sm leading-relaxed mb-4">{item.desc}</p>
-
-                {item.challenges && (
-                  <div className="grid md:grid-cols-2 gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
-                    <div>
-                      <div className="text-[10px] font-bold text-red-500 uppercase tracking-[0.15em] mb-1.5">
-                        Challenge
+                    <div className="flex items-center gap-3 flex-wrap">
+                      <span className="text-lg font-black text-slate-900">{year}</span>
+                      <span className="text-sm text-gray-400 font-medium">
+                        · {items.length}개
+                      </span>
+                      <div className="flex gap-1.5">
+                        {items.some((i) => i.type === "Work") && (
+                          <span className="text-[11px] px-2 py-0.5 bg-blue-50 text-blue-600 rounded-full font-semibold">
+                            Career
+                          </span>
+                        )}
+                        {items.some((i) => i.type === "Project") && (
+                          <span className="text-[11px] px-2 py-0.5 bg-emerald-50 text-emerald-600 rounded-full font-semibold">
+                            Project
+                          </span>
+                        )}
                       </div>
-                      <p className="text-xs text-gray-600 leading-relaxed">{item.challenges}</p>
                     </div>
-                    <div>
-                      <div className="text-[10px] font-bold text-emerald-500 uppercase tracking-[0.15em] mb-1.5">
-                        Solution
+                    <ChevronDown
+                      size={20}
+                      className={`text-gray-400 flex-shrink-0 transition-transform duration-300 ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+
+                  {/* ── 아코디언 콘텐츠 (grid-template-rows 애니메이션) ── */}
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateRows: isOpen ? "1fr" : "0fr",
+                      transition: "grid-template-rows 0.35s ease",
+                    }}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="px-4 pb-4 space-y-3">
+                        {items.map((item, idx) => (
+                          <div
+                            key={idx}
+                            className="rounded-xl p-5 border border-gray-100 bg-gray-50 hover:border-indigo-200 hover:bg-white transition-all"
+                          >
+                            <div className="flex flex-wrap items-center gap-2 mb-2">
+                              <h3 className="text-sm font-bold text-slate-900">{item.title}</h3>
+                              <span
+                                className={`text-[11px] px-2 py-0.5 rounded-full font-semibold ${
+                                  item.type === "Work"
+                                    ? "bg-blue-50 text-blue-600"
+                                    : "bg-emerald-50 text-emerald-600"
+                                }`}
+                              >
+                                {item.type === "Work" ? "Career" : "Project"}
+                              </span>
+                              <span className="ml-auto text-xs text-gray-400 font-medium">
+                                {item.period}
+                              </span>
+                            </div>
+
+                            <p className="text-gray-500 text-sm leading-relaxed mb-3">
+                              {item.desc}
+                            </p>
+
+                            {item.challenges && (
+                              <div className="grid md:grid-cols-2 gap-3 p-4 bg-white rounded-xl border border-gray-100">
+                                <div>
+                                  <div className="text-[10px] font-bold text-red-500 uppercase tracking-[0.15em] mb-1.5">
+                                    Challenge
+                                  </div>
+                                  <p className="text-xs text-gray-600 leading-relaxed">
+                                    {item.challenges}
+                                  </p>
+                                </div>
+                                <div>
+                                  <div className="text-[10px] font-bold text-emerald-500 uppercase tracking-[0.15em] mb-1.5">
+                                    Solution
+                                  </div>
+                                  <p className="text-xs text-gray-600 leading-relaxed">
+                                    {item.solutions}
+                                  </p>
+                                </div>
+                              </div>
+                            )}
+
+                            <div className="flex flex-wrap gap-1.5 mt-3">
+                              {item.tech?.map((t) => (
+                                <span
+                                  key={t}
+                                  className="text-[11px] px-2.5 py-1 bg-white text-gray-500 rounded-md font-medium border border-gray-100"
+                                >
+                                  {t}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                      <p className="text-xs text-gray-600 leading-relaxed">{item.solutions}</p>
                     </div>
                   </div>
-                )}
-
-                <div className="flex flex-wrap gap-1.5 mt-4">
-                  {item.tech?.map((t) => (
-                    <span
-                      key={t}
-                      className="text-[11px] px-2.5 py-1 bg-gray-100 text-gray-500 rounded-md font-medium"
-                    >
-                      {t}
-                    </span>
-                  ))}
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
