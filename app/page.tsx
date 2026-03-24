@@ -6,6 +6,7 @@ import { Github, Mail, ExternalLink, ChevronDown } from "lucide-react";
 // 여기에 본인 정보를 입력하세요
 // ============================================================
 const ME = {
+  name: "",
   role: "백엔드 개발자 · 11년 경력",
   bio: "2014년부터 항공·여행·이커머스 도메인에서 API 연동, 플랫폼 설계, 인프라 운영까지 폭넓게 경험한 백엔드 개발자입니다. 레거시 시스템의 현대화와 안정적인 서비스 운영에 강점이 있습니다.",
   email: "joarechi@gmail.com",
