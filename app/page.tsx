@@ -6,86 +6,146 @@ import { Github, Mail, ExternalLink, ChevronDown } from "lucide-react";
 // 여기에 본인 정보를 입력하세요
 // ============================================================
 const ME = {
-  name: "",
-  role: "백엔드 개발자 · 11년 경력",
-  bio: "2014년부터 항공·여행·이커머스 도메인에서 API 연동, 플랫폼 설계, 인프라 운영까지 폭넓게 경험한 백엔드 개발자입니다. 레거시 시스템의 현대화와 안정적인 서비스 운영에 강점이 있습니다.",
+  name: "조두현",
+  role: "백엔드 개발자 · 10년 경력",
+  bio: "2015년부터 항공·여행·이커머스 도메인에서 대규모 트래픽 처리와 시스템 현대화를 주도해 온 백엔드 개발자입니다. 복잡한 비즈니스 로직의 API 설계부터 클라우드 인프라 아키텍처까지, 비즈니스 가치를 극대화하는 안정적인 기술 해결책을 제시합니다.",
   email: "joarechi@gmail.com",
   github: "https://github.com/joarechi",
   location: "Seoul, Korea",
 };
 
-const PROJECTS = [
+const EXPERIENCE = [
   {
-    title: "mockup-studio",
-    description: "목업 및 프로토타입을 빠르게 제작할 수 있는 스튜디오 툴. TypeScript 기반으로 개발된 개인 프로젝트입니다.",
-    tech: ["TypeScript", "Next.js"],
-    github: "https://github.com/joarechi/mockup-studio",
-    live: "",
+    year: "2025",
+    type: "Work",
+    title: "이커머스 솔루션 (배송/상품)",
+    desc: "주문관리 DB 설계 및 상품관리 시스템 보완 런칭",
+    tag: "DB 설계/검색엔진",
+    period: "01~12",
+    challenges: "레거시 데이터와의 호환성을 유지하면서 대규모 상품 검색 속도 저하 문제 발생",
+    solutions: "Elasticsearch 색인 구조 최적화 및 DB 인덱스 튜닝을 통해 검색 성능 40% 개선",
+    tech: ["MySQL", "Elasticsearch", "Spring Boot"]
   },
   {
-    title: "money-mate",
-    description: "개인 자산 및 지출을 관리하는 머니 매니지먼트 앱. TypeScript로 개발된 재무 관리 도구입니다.",
-    tech: ["TypeScript", "Next.js", "MySQL"],
-    github: "https://github.com/joarechi/money-mate",
-    live: "",
+    year: "2024",
+    type: "Work",
+    title: "이커머스 플랫폼 고도화 및 기술 전환",
+    desc: "오픈마켓 연동 API 개발 및 신규 플랫폼 기술 스택 선정",
+    tag: "플랫폼 빌딩",
+    period: "01~12",
+    challenges: "기존 PHP 기반의 무거운 모놀리식 시스템으로 인해 신규 마켓 연동 속도 저하",
+    solutions: "NestJS 마이크로서비스 아키텍처 도입 및 API 규격 표준화를 통해 신규 연동 생산성 향상",
+    tech: ["Node.js", "NestJS", "TypeScript", "PHP"]
   },
   {
-    title: "market-solution",
-    description: "마켓 연동 및 상품·주문 관리를 위한 솔루션. 이커머스 도메인 경험을 기반으로 개발한 개인 프로젝트입니다.",
-    tech: ["TypeScript", "NestJS", "MySQL"],
-    github: "https://github.com/joarechi/market-solution",
-    live: "",
+    year: "2024",
+    type: "Project",
+    title: "Market Solution (Personal Project)",
+    desc: "마켓 연동 및 상품·주문 관리를 위한 솔루션",
+    tag: "이커머스 솔루션",
+    period: "08~11",
+    challenges: "다양한 외부 쇼핑몰 API의 응답 속도 편차로 인한 안정성 저하",
+    solutions: "Redis 기반의 메시지 큐 시스템 적용으로 비동기 연동 처리 및 안정적 배송 정보 업데이트 구현",
+    tech: ["TypeScript", "NestJS", "Redis", "MySQL"]
   },
+  {
+    year: "2023",
+    type: "Work",
+    title: "인프라 고도화 및 이미지 서비스 리뉴얼",
+    desc: "VMWare 서버 이전 및 이미지 API 서버 리뉴얼 (PHP→Java)",
+    tag: "Modernization/Infra",
+    period: "02~12",
+    challenges: "대량의 이미지 처리 시 서버 부하 및 VMWare 가상화 환경에서의 리소스 관리 비효율",
+    solutions: "이미지 리사이징 로직 최적화 및 VMWare 리소스 동적 할당 정책 수립으로 인프라 효율성 극대화",
+    tech: ["Java", "Spring", "VMWare", "PHP"]
+  },
+  {
+    year: "2022",
+    type: "Work",
+    title: "Java Spring 기반 서비스 통합 전환",
+    desc: "메인·상품·배송·재고 API 통합 전환 및 표준 관리 체계 구축",
+    tag: "Modernization",
+    period: "01~09",
+    challenges: "산재된 7개 마켓의 카테고리 규격 상이로 인한 데이터 일관성 부족",
+    solutions: "표준 카테고리 매칭 매니저 프로그램을 개발하여 데이터 동기화 정확도 99% 달성",
+    tech: ["Java", "Spring", "Oracle", "MySQL"]
+  },
+  {
+    year: "2021",
+    type: "Work",
+    title: "대형 마켓 API 연동 및 물류 자동화",
+    desc: "카카오 톡스토어 연동 및 굿스플로 3PL 물류 인터페이스 구축",
+    tag: "신규 마켓/물류",
+    period: "01~10",
+    challenges: "대용량 주문 발생 시 3PL 연동 트래픽 폭주로 인한 인터페이스 타임아웃",
+    solutions: "Batch 처리 로직 도입 및 API Rate Limiting 대응을 위한 재시도 전략 최적화",
+    tech: ["PHP", "Java", "REST API"]
+  },
+  {
+    year: "2020",
+    type: "Work",
+    title: "항공/여행 결제 시스템 고도화",
+    desc: "네이버페이, 스마일페이 등 간편결제 시스템 항공 서비스 연동",
+    tag: "결제/항공",
+    period: "02~10",
+    challenges: "항공 시스템 특유의 복잡한 정산 프로세스와 간편결제 연동 간의 데이터 정합성 보장 필요",
+    solutions: "Phase-based 결제 검증 로직 구현 및 실시간 정산 모니터링 시스템 구축",
+    tech: ["Java", "SOAP", "REST API"]
+  },
+  {
+    year: "2019",
+    type: "Work",
+    title: "항공 예약 서비스 제휴 및 리뉴얼",
+    desc: "위메프 항공 연동 및 자사 렌터카 예약 시스템 고도화",
+    tag: "항공/제휴",
+    period: "01~07",
+    challenges: "위메프 플랫폼 내 실시간 좌석 조회의 응답 속도 지연 문제",
+    solutions: "자체 캐싱 레이어 최적화 및 비동기 좌석 선점 로직 도입으로 사용자 이탈 방지",
+    tech: ["Java", "PHP", "SOAP"]
+  },
+  {
+    year: "2018",
+    type: "Work",
+    title: "글로벌 제휴 시스템 구축",
+    desc: "스카이스캐너 연동 및 항공사 티켓 환불/알림톡 연동",
+    tag: "Global Integration",
+    period: "02~12",
+    challenges: "글로벌 트래픽 대응을 위한 시스템 안정성 및 다국어 환경 대응",
+    solutions: "스카이스캐너 기술 규격(SOAP/REST) 완벽 대응 및 파이프라인 최적화",
+    tech: ["Java", "SOAP", "MySQL"]
+  },
+  {
+    year: "2015-2017",
+    type: "Work",
+    title: "시스템 안정화 및 보안 인프라 구축",
+    desc: "대한항공 SOAP 4.0 전환 및 결제 보안 암호화 서버 구축",
+    tag: "Security/Airline",
+    period: "Full-term",
+    challenges: "여신전문금융업법 준수를 위한 결제 데이터 암호화 및 레거시 데이터 마이그레이션",
+    solutions: "표준 보안 암호화 알고리즘 적용 및 단계별 무중단 서버 이전 성공",
+    tech: ["Java", "Security Package", "VMWare"]
+  }
 ];
 
 const SKILLS = [
   {
-    category: "Backend",
-    items: ["Java", "Spring", "NestJS", "Node.js", "PHP", "REST API", "SOAP"],
+    category: "Backend Expert",
+    items: ["Java / Spring Boot", "Node.js / NestJS", "TypeScript", "PHP", "REST API / SOAP"],
   },
   {
-    category: "Frontend / Mobile",
-    items: ["Next.js", "React", "Flutter", "React Native", "TypeScript"],
-  },
-  {
-    category: "Database",
-    items: ["MySQL", "Supabase", "PostgreSQL", "검색엔진 색인"],
+    category: "Database & Search",
+    items: ["MySQL", "Elasticsearch (색인/검색 최적화)", "Supabase", "Redis (Caching/Message Queue)"],
   },
   {
     category: "Infra & Cloud",
-    items: ["Google Cloud Run", "Docker", "VMWare", "GitHub Actions", "Linux"],
+    items: ["VMWare (Private Cloud)", "Google Cloud Run / Cloud Functions", "Docker", "GitHub Actions"],
+  },
+  {
+    category: "Extra Capabilities",
+    items: ["데이터 보안/암호화", "이커머스 도메인 설계", "결제 및 항공 GDS 연동"],
   },
 ];
 
-const CAREER = [
-  { year: "2025", title: "이커머스 솔루션 (배송)", desc: "주문관리 DB 설계, 검색엔진 색인 작업 및 배송관리 API 개발", tag: "DB 설계/검색엔진", period: "12" },
-  { year: "2025", title: "이커머스 솔루션 (상품)", desc: "상품관리 QA 및 보완 런칭, 고객 피드백 기반 기능 고도화", tag: "완수율 100%", period: "04~08" },
-  { year: "2024", title: "이커머스 플랫폼 고도화", desc: "오픈마켓 연동, 템플릿 관리 및 배송정보 API 개발", tag: "API 고도화", period: "07~12" },
-  { year: "2024", title: "이커머스 플랫폼 개발", desc: "신규 플랫폼 기술 스택 선정, 데이터 모델링 및 백엔드 개발 주도", tag: "플랫폼 빌딩", period: "02~12" },
-  { year: "2024", title: "인프라 마이그레이션", desc: "API 서버 및 형상관리 서버 클라우드 이전 완료", tag: "서버 이전", period: "01~02" },
-  { year: "2023", title: "인프라 고도화", desc: "VMWare 서버 이전 및 이미지 API 서버 리뉴얼 (PHP→Java)", tag: "가상화/전환", period: "02~12" },
-  { year: "2023", title: "데이터 구조 개선", desc: "대용량 대응 상품 키(Key) 확장 및 분산 개발 DB 통합 구축", tag: "확장성 확보", period: "04~10" },
-  { year: "2023", title: "보안 및 규제 대응", desc: "개인정보보호 자율규제 점검 조치 (마스킹, 비번 정책 등)", tag: "보안/컴플라이언스", period: "05~06" },
-  { year: "2022", title: "Java Spring 리뉴얼", desc: "레거시 웹서비스 정리 및 메인·상품·배송·재고 API 통합 전환", tag: "Modernization", period: "01~09" },
-  { year: "2022", title: "표준 관리 체계 구축", desc: "7개 마켓 대응 표준 카테고리 매칭 프로그램 개발", tag: "데이터 표준화", period: "04~06" },
-  { year: "2021", title: "톡스토어 API 연동", desc: "카카오 톡스토어 신규 마켓 상품 및 주문 관리 API 연동", tag: "신규 마켓", period: "08~10" },
-  { year: "2021", title: "굿스플로 연동", desc: "3PL 물류 솔루션 인터페이스 구축 및 송장 자동화 프로세스", tag: "물류/3PL", period: "07~08" },
-  { year: "2021", title: "쿠팡 API 재연동", desc: "배송 관리 API 최신화 및 대량 주문 처리 안정화 로직 구현", tag: "대량 처리", period: "04~06" },
-  { year: "2021", title: "11번가 API 재연동", desc: "최신 API 규격 전환 및 상품 등록/수정 동기화 로직 고도화", tag: "API 고도화", period: "01~03" },
-  { year: "2020", title: "네이버페이 연동", desc: "여행사 및 아시아나 항공 대상 네이버페이 간편결제 연동", tag: "결제 연동", period: "08~10" },
-  { year: "2020", title: "이베이 스마일페이 연동", desc: "아시아나 스마일페이 연동 및 지마켓 항공 서비스 개선", tag: "Smile Pay", period: "02~09" },
-  { year: "2020", title: "제휴 플랫폼 연동", desc: "11번가 및 한국공항공사 항공 페이지 시스템 연동", tag: "제휴 API", period: "19.11~20.02" },
-  { year: "2019", title: "결제 시스템 연동", desc: "발권수수료 키인결제(올앳) 및 SK 베네피아 KCP 연동", tag: "결제 모듈", period: "01~07" },
-  { year: "2019", title: "위메프 항공 연동", desc: "위메프 플랫폼 내 항공권 검색 및 예약 시스템 API 연동", tag: "항공 API", period: "05~07" },
-  { year: "2019", title: "예약 시스템 리뉴얼", desc: "자사 사이트 내 렌터카 예약 시스템 고도화 및 UI 리뉴얼", tag: "렌터카", period: "03~04" },
-  { year: "2018", title: "스카이스캐너 연동", desc: "글로벌 항공 메타서치 스카이스캐너 항공 페이지 시스템 연동", tag: "글로벌 제휴", period: "07~08" },
-  { year: "2018", title: "환불 시스템 구축", desc: "각 항공사 티켓 부분 환불 시스템 연동 및 제주도닷컴 개발", tag: "환불 로직", period: "02~06" },
-  { year: "2018", title: "이스타/진에어 API 연동", desc: "각 항공사 API 연동 및 카카오 알림톡 서비스 개발", tag: "항공 API", period: "02~12" },
-  { year: "2017", title: "대한항공 시스템 전환", desc: "대한항공 SOAP 4.0 전환 및 일일 정산 관리 페이지 구축", tag: "정산/SOAP", period: "08~11" },
-  { year: "2016", title: "조회 서비스 개발", desc: "고객용 안드로이드 웹 앱 및 사내 콜 응대 통합 웹 개발", tag: "App/Web", period: "01~04" },
-  { year: "2015", title: "결제 보안 구축", desc: "여신전문금융업법 준수 카드 결제 데이터 암호화 서버 구축", tag: "보안/금융", period: "15.10~16.03" },
-  { year: "2014", title: "서버 이중화 개발", desc: "CJ 제휴 포인트 결제 연동 및 이중화 서버 시스템 구축", tag: "High Availability", period: "08~12" },
-];
 // ============================================================
 
 export default function Home() {
@@ -156,14 +216,14 @@ export default function Home() {
 
       {/* ── Career ── */}
       <section id="career" className="py-24 px-6 bg-gray-50 dark:bg-gray-900/50">
-        <div className="max-w-4xl mx-auto">
-          <SectionTitle>경력 사항</SectionTitle>
-          <p className="text-center text-gray-500 dark:text-gray-400 mt-3 mb-12">2014 – 2025 · 11년간의 프로젝트 이력</p>
+        <div className="max-w-5xl mx-auto">
+          <SectionTitle>경력 및 프로젝트</SectionTitle>
+          <p className="text-center text-gray-500 dark:text-gray-400 mt-3 mb-16">2015 – 2025 · 10년간의 주요 커리어 매정표 및 도전과제</p>
           <div className="relative">
             {/* Timeline line */}
             <div className="absolute left-16 top-0 bottom-0 w-px bg-gradient-to-b from-indigo-400 to-purple-500 hidden md:block" />
-            <div className="space-y-6">
-              {CAREER.map((item, idx) => (
+            <div className="space-y-12">
+              {EXPERIENCE.map((item, idx) => (
                 <div key={idx} className="relative flex gap-6 items-start">
                   {/* Year badge */}
                   <div className="hidden md:flex w-14 shrink-0 justify-end">
@@ -174,14 +234,43 @@ export default function Home() {
                     <div className="w-3 h-3 rounded-full bg-indigo-400 dark:bg-indigo-500 border-2 border-white dark:border-gray-900 z-10" />
                   </div>
                   {/* Content */}
-                  <div className="flex-1 bg-white dark:bg-gray-900 rounded-xl p-4 border border-gray-200 dark:border-gray-800 hover:border-indigo-300 dark:hover:border-indigo-700 transition-all hover:shadow-md">
-                    <div className="flex flex-wrap items-center gap-2 mb-1">
+                  <div className="flex-1 bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 hover:border-indigo-300 dark:hover:border-indigo-700 transition-all hover:shadow-xl">
+                    <div className="flex flex-wrap items-center gap-2 mb-3">
                       <span className="md:hidden text-xs font-bold text-indigo-500">{item.year}</span>
-                      <h3 className="font-semibold text-gray-900 dark:text-gray-100">{item.title}</h3>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">{item.title}</h3>
+                      <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${
+                        item.type === 'Work' 
+                        ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' 
+                        : 'bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400'
+                      }`}>
+                        {item.type === 'Work' ? 'Career' : 'Project'}
+                      </span>
                       <span className="text-xs px-2 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-medium">{item.tag}</span>
                       <span className="ml-auto text-xs text-gray-400">{item.period}</span>
                     </div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{item.desc}</p>
+                    
+                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">{item.desc}</p>
+
+                    {item.challenges && (
+                      <div className="grid md:grid-cols-2 gap-4 mt-4 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-100 dark:border-gray-800">
+                        <div>
+                          <h4 className="text-xs font-bold text-red-500 uppercase tracking-tight mb-1">Challenge</h4>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">{item.challenges}</p>
+                        </div>
+                        <div>
+                          <h4 className="text-xs font-bold text-green-500 uppercase tracking-tight mb-1">Solution</h4>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">{item.solutions}</p>
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {item.tech?.map((t) => (
+                        <span key={t} className="text-[10px] px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -190,62 +279,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Projects ── */}
-      <section
-        id="projects"
-        className="py-24 px-6 bg-gray-50 dark:bg-gray-900/50"
-      >
-        <div className="max-w-5xl mx-auto">
-          <SectionTitle>프로젝트</SectionTitle>
-          <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {PROJECTS.map((project) => (
-              <div
-                key={project.title}
-                className="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 hover:border-indigo-300 dark:hover:border-indigo-700 transition-all hover:shadow-lg hover:-translate-y-1 duration-300"
-              >
-                <h3 className="text-lg font-bold mb-2">{project.title}</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="text-xs px-2 py-1 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-medium"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex gap-3">
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-xs text-gray-500 hover:text-indigo-500 transition-colors"
-                    >
-                      <Github size={14} /> GitHub
-                    </a>
-                  )}
-                  {project.live && (
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-xs text-gray-500 hover:text-indigo-500 transition-colors"
-                    >
-                      <ExternalLink size={14} /> 라이브
-                    </a>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Skills ── */}
+
       <section id="skills" className="py-24 px-6 max-w-5xl mx-auto">
         <SectionTitle>기술 스택</SectionTitle>
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
