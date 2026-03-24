@@ -98,9 +98,6 @@ export default function Home() {
           <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-purple-400/20 dark:bg-purple-600/10 rounded-full blur-3xl" />
         </div>
 
-        <p className="text-sm font-medium tracking-widest text-indigo-500 dark:text-indigo-400 uppercase mb-4 animate-fade-in">
-          안녕하세요 👋
-        </p>
         <h1 className="text-5xl md:text-7xl font-extrabold mb-4 animate-slide-up">
           <span className="text-gradient">{ME.name}</span>
         </h1>
