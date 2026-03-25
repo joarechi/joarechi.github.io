@@ -48,6 +48,17 @@ const PROJECTS = [
 
 const EXPERIENCE = [
   {
+    year: "2026",
+    type: "Project",
+    title: "카테고리 매핑 AI 연동 고도화",
+    desc: "상품 카테고리 자동 매핑 시스템에 AI 연동 — 콘텐츠 벡터화 및 키워드 색인을 통한 매핑 데이터 누적",
+    tag: "AI/Search",
+    period: "진행 중",
+    challenges: "다양한 쇼핑몰·카테고리 간 명칭 불일치로 인한 수동 매핑 비용 증가",
+    solutions: "콘텐츠를 벡터화하고 키워드를 지속 색인하여 벡터 유사도 기반 자동 분류로 매핑 효율 지속 개선",
+    tech: ["Elasticsearch", "NestJS", "TypeScript", "AI/LLM"],
+  },
+  {
     year: "2025",
     type: "Work",
     title: "이커머스 솔루션 (배송/상품)",
@@ -188,7 +199,7 @@ const SKILLS = [
   },
   {
     category: "Infra & Cloud",
-    items: ["VMWare (Private Cloud)", "Google Cloud Run / Cloud Functions", "Docker", "GitHub Actions"],
+    items: ["VMWare (Private Cloud)", "Google Cloud Run / Cloud Functions", "Docker", "GitHub Actions", "Kubernetes", "ArgoCD", "GitLab CI/CD"],
   },
   {
     category: "Extra Capabilities",
@@ -199,7 +210,7 @@ const SKILLS = [
 
 export default function Home() {
   const [openYears, setOpenYears] = useState<Set<string>>(
-    new Set(["2025", "2024"])
+    new Set(["2026", "2025", "2024"])
   );
 
   const toggleYear = (year: string) => {
