@@ -1,57 +1,29 @@
 "use client";
 
 import { useState } from "react";
-import { Github, Mail, ArrowRight, ChevronDown } from "lucide-react";
+import { Github, Mail, ChevronDown } from "lucide-react";
 
 // ============================================================
 // 본인 정보
 // ============================================================
 const ME = {
   name: "조두현",
-  role: "풀스택 개발자",
-  bio: "2015년부터 항공·여행·이커머스 도메인에서 백엔드 시스템을 설계하고 운영해온 개발자. API 아키텍처부터 클라우드 인프라, 프론트엔드까지 — 실서비스를 직접 만들고 운영합니다.",
+  role: "백엔드 & 자동화 플랫폼 개발자",
+  bio: "2015년부터 항공·여행·이커머스 도메인에서 백엔드 시스템을 설계하고 운영해온 개발자. 반복 업무를 자동화 파이프라인으로 전환하고, NestJS + Cloud Run 기반의 플랫폼을 직접 설계·운영합니다.",
   email: "joarechi@gmail.com",
   github: "https://github.com/joarechi",
   location: "Seoul, Korea",
 };
 
-const PROJECTS = [
-  {
-    name: "rich-worker",
-    sub: "AI 주식·코인 자동매매 플랫폼",
-    desc: "AI가 실시간 시장 데이터를 분석하여 자동으로 매매 전략을 실행하는 풀스택 플랫폼. 규칙 기반 전략과 AI 판단을 결합한 하이브리드 매매 엔진을 처음부터 끝까지 구현.",
-    points: [
-      "실시간 시세 데이터 수집 및 AI 분석 파이프라인 구축",
-      "규칙 기반 + AI 하이브리드 자동 매매 전략 엔진",
-      "Supabase 기반 실시간 포트폴리오 대시보드 (Next.js)",
-      "Google Cloud Run 서버리스 아키텍처로 탄력적 확장",
-    ],
-    tech: ["Next.js", "TypeScript", "Supabase", "Google Cloud Run", "AI/LLM"],
-    github: "https://github.com/joarechi/rich-worker",
-    index: 0,
-  },
-  {
-    name: "match-master",
-    sub: "풀스택 매칭 서비스",
-    desc: "기획·설계·개발·배포까지 단독으로 완성한 양방향 매칭 플랫폼. 백엔드 API 서버부터 프론트엔드 UI까지 전체 기술 스택을 혼자 구현한 실서비스.",
-    points: [
-      "양방향 매칭 알고리즘 설계 및 API 구현",
-      "NestJS + TypeScript 기반 RESTful API 서버",
-      "Redis 기반 실시간 알림 및 비동기 처리",
-      "단독 풀스택 기획·개발·배포 일괄 수행",
-    ],
-    tech: ["NestJS", "TypeScript", "Next.js", "MySQL", "Redis"],
-    github: "https://github.com/joarechi/match-master",
-    index: 1,
-  },
-];
+const PROJECTS: never[] = [];
 
 const EXPERIENCE = [
   {
     year: "2026",
     type: "Project",
     title: "카테고리 매핑 AI 연동 고도화",
-    desc: "상품 카테고리 자동 매핑 시스템에 AI 연동 — 콘텐츠 벡터화 및 키워드 색인을 통한 매핑 데이터 누적",
+    desc: "상품 카테고리 자동 매핑 시스템에 AI 연동 — 콘텐츠 벡터화 및 키워드 색인을 통한 매핑 데이터 누적"
+    challenge: "수동으로 수시간씩 걸리던 카테고리 매핑 작업을 AI 파이프라인으로 자동화. 비용 절감을 위해 기매핑 데이터를 누적 활용하는 구조로 설계, 오매핑 케이스를 감지하고 보완하는 로직 구현이 핵심 난관",
     tag: "AI/Search",
     period: "진행 중",
     challenges: "다양한 쇼핑몰·카테고리 간 명칭 불일치로 인한 수동 매핑 비용 증가",
@@ -63,6 +35,7 @@ const EXPERIENCE = [
     type: "Work",
     title: "이커머스 솔루션 (배송/상품)",
     desc: "주문관리 DB 설계 및 상품관리 시스템 보완 런칭",
+    challenge: "상품관리: UI 개편과 메뉴 구조 변경에 따라 URL·DB 스키마·서버를 전면 재설계. 주문관리: 기존 시스템의 묶음주문·분할배송·부분취소 처리 한계를 분석하고 이를 수용하는 DB 스키마를 새로 설계",
     tag: "DB 설계/검색엔진",
     period: "01~12",
     challenges: "레거시 데이터와의 호환성을 유지하면서 대규모 상품 검색 속도 저하 문제 발생",
@@ -74,28 +47,19 @@ const EXPERIENCE = [
     type: "Work",
     title: "이커머스 플랫폼 고도화 및 기술 전환",
     desc: "오픈마켓 연동 API 개발 및 신규 플랫폼 기술 스택 선정",
+    challenge: "다수 오픈마켓의 대용량 요청을 처리하기 위해 Kafka 기반 아키텍처를 도입하고 요청량 제어를 설계, 마켓마다 상이한 데이터 구조를 유연하게 수용하는 DB 스키마 설계",
     tag: "플랫폼 빌딩",
     period: "01~12",
     challenges: "기존 PHP 기반의 무거운 모놀리식 시스템으로 인해 신규 마켓 연동 속도 저하",
     solutions: "NestJS 마이크로서비스 아키텍처 도입 및 API 규격 표준화를 통해 신규 연동 생산성 향상",
     tech: ["Node.js", "NestJS", "TypeScript", "PHP"],
   },
-  {
-    year: "2024",
-    type: "Project",
-    title: "Market Solution (Personal Project)",
-    desc: "마켓 연동 및 상품·주문 관리를 위한 솔루션",
-    tag: "이커머스 솔루션",
-    period: "08~11",
-    challenges: "다양한 외부 쇼핑몰 API의 응답 속도 편차로 인한 안정성 저하",
-    solutions: "Redis 기반의 메시지 큐 시스템 적용으로 비동기 연동 처리 및 안정적 배송 정보 업데이트 구현",
-    tech: ["TypeScript", "NestJS", "Redis", "MySQL"],
-  },
-  {
+    {
     year: "2023",
     type: "Work",
     title: "인프라 고도화 및 이미지 서비스 리뉴얼",
     desc: "VMWare 서버 이전 및 이미지 API 서버 리뉴얼 (PHP→Java)",
+    challenge: "인수인계 없는 레거시 PHP 이미지 서버의 API 동작을 역분석하며 Java로 리뉴얼, 비용 절감을 위해 외부 클라우드에서 내부 물리 서버로 이관 완료",
     tag: "Modernization/Infra",
     period: "02~12",
     challenges: "대량의 이미지 처리 시 서버 부하 및 VMWare 가상화 환경에서의 리소스 관리 비효율",
@@ -107,6 +71,7 @@ const EXPERIENCE = [
     type: "Work",
     title: "Java Spring 기반 서비스 통합 전환",
     desc: "메인·상품·배송·재고 API 통합 전환 및 표준 관리 체계 구축",
+    challenge: "10년 이상 레거시 .NET API를 Java Spring으로 포팅하며 동일 동작을 보장하는 것이 최대 난관. Docker 도입과 함께 DevOps를 처음 적용하며 Java 환경의 메모리 관리와 초기 배포 이슈를 직접 겪으며 해결",
     tag: "Modernization",
     period: "01~09",
     challenges: "산재된 7개 마켓의 카테고리 규격 상이로 인한 데이터 일관성 부족",
@@ -117,7 +82,8 @@ const EXPERIENCE = [
     year: "2021",
     type: "Work",
     title: "대형 마켓 API 연동 및 물류 자동화",
-    desc: "카카오 톡스토어 연동 및 굿스플로 3PL 물류 인터페이스 구축",
+    desc: "카카오 톡스토어 연동 및 굿스플로 3PL 물류 인터페이스 구축"
+    challenge: "카카오 톡스토어 신규 마켓 연동과 굿스플로 송장발행 솔루션 구축 시, WinForms 환경에서 웹뷰 연동이 필요해 Edge/Chrome 드라이버를 직접 활용하는 방식으로 해결",
     tag: "신규 마켓/물류",
     period: "01~10",
     challenges: "대용량 주문 발생 시 3PL 연동 트래픽 폭주로 인한 인터페이스 타임아웃",
@@ -129,6 +95,7 @@ const EXPERIENCE = [
     type: "Work",
     title: "항공/여행 결제 시스템 고도화",
     desc: "네이버페이, 스마일페이 등 간편결제 시스템 항공 서비스 연동",
+    challenge: "네이버페이·스마일페이 등 간편결제 모듈과 항공사 시스템이 각각 독립적으로 운영되어, 양쪽 연동 구현과 테스트 커뮤니케이션을 조율하며 통합 결제 시스템을 완성",
     tag: "결제/항공",
     period: "02~10",
     challenges: "항공 시스템 특유의 복잡한 정산 프로세스와 간편결제 연동 간의 데이터 정합성 보장 필요",
@@ -140,6 +107,7 @@ const EXPERIENCE = [
     type: "Work",
     title: "항공 예약 서비스 제휴 및 리뉴얼",
     desc: "위메프 항공 연동 및 자사 렌터카 예약 시스템 고도화",
+    challenge: "위메프 항공 제휴를 위해 파트너사 요구 프론트엔드를 직접 구현하고 연동 테스트를 통과, 자사 렌터카 서비스는 UI 전면 개편과 함께 렌터카 업체 API를 최초 연동",
     tag: "항공/제휴",
     period: "01~07",
     challenges: "위메프 플랫폼 내 실시간 좌석 조회의 응답 속도 지연 문제",
@@ -151,6 +119,7 @@ const EXPERIENCE = [
     type: "Work",
     title: "글로벌 제휴 시스템 구축",
     desc: "스카이스캐너 연동 및 항공사 티켓 환불/알림톡 연동",
+    challenge: "스카이스캐너 정산 트래킹 방식과 파트너 요구 항공사 API 규격을 분석·구현, 높은 트래픽 처리를 위해 Go 언어로 API 서버를 개발",
     tag: "Global Integration",
     period: "02~12",
     challenges: "글로벌 트래픽 대응을 위한 시스템 안정성 및 다국어 환경 대응",
@@ -162,6 +131,7 @@ const EXPERIENCE = [
     type: "Work",
     title: "시스템 안정화 및 보안 인프라 구축",
     desc: "대한항공 SOAP 4.0 전환 및 결제 보안 암호화 서버 구축",
+    challenge: "항공사 제공 SOAP API의 복잡한 명세를 분석하며 예약 시스템을 안정화하고, 결제 보안 암호화 서버 구축 시 제공 라이브러리와 언어 미호환 문제를 직접 해결하며 서버를 완성",
     tag: "Security/Airline",
     period: "Full-term",
     challenges: "여신전문금융업법 준수를 위한 결제 데이터 암호화 및 레거시 데이터 마이그레이션",
