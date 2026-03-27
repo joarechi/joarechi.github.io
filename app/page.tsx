@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Github, Mail, ChevronDown } from "lucide-react";
+import { Github, Mail, ChevronDown, ArrowRight } from "lucide-react";
 
 // ============================================================
 // 본인 정보
@@ -15,19 +15,48 @@ const ME = {
   location: "Seoul, Korea",
 };
 
-const PROJECTS: never[] = [];
+const PROJECTS = [
+  {
+    name: "rich-worker",
+    sub: "AI 기반 자동화 파이프라인 플랫폼",
+    desc: "실시간 외부 데이터 수집 → AI 분석 → 자동 실행까지 전 과정을 자동화한 풀스택 플랫폼. NestJS 스케줄러 기반 자동화 엔진과 GitHub Actions CI/CD를 통해 Cloud Run에 무중단 배포.",
+    points: [
+      "외부 데이터 수집 → AI 분석 → 자동 실행 파이프라인 설계 (NestJS Scheduler)",
+      "REST API 연동 기반 규칙 + AI 하이브리드 자동화 전략 엔진 구현",
+      "GitHub Actions CI/CD → Google Cloud Run 무중단 자동 배포",
+      "Supabase 기반 실시간 모니터링 대시보드 (Next.js)",
+    ],
+    tech: ["NestJS", "Next.js", "TypeScript", "Supabase", "Google Cloud Run", "GitHub Actions", "AI/LLM"],
+    github: "https://github.com/joarechi/rich-worker",
+    index: 0,
+  },
+  {
+    name: "match-master",
+    sub: "풀스택 매칭 서비스",
+    desc: "기획·설계·개발·배포까지 단독으로 완성한 양방향 매칭 플랫폼. 백엔드 API 서버부터 프론트엔드 UI까지 전체 기술 스택을 혼자 구현한 실서비스.",
+    points: [
+      "양방향 매칭 알고리즘 설계 및 API 구현",
+      "NestJS + TypeScript 기반 RESTful API 서버",
+      "Redis 기반 실시간 알림 및 비동기 처리",
+      "단독 풀스택 기획·개발·배포 일괄 수행",
+    ],
+    tech: ["NestJS", "TypeScript", "Next.js", "MySQL", "Redis"],
+    github: "https://github.com/joarechi/match-master",
+    index: 1,
+  },
+];
 
 const EXPERIENCE = [
   {
     year: "2026",
     type: "Project",
     title: "카테고리 매핑 AI 연동 고도화",
-    desc: "상품 카테고리 자동 매핑 시스템에 AI 연동 — 콘텐츠 벡터화 및 키워드 색인을 통한 매핑 데이터 누적"
+    desc: "상품 카테고리 자동 매핑 시스템에 AI 연동 — 콘텐츠 벡터화 및 키워드 색인을 통한 매핑 데이터 누적",
     challenge: "수동으로 수시간씩 걸리던 카테고리 매핑 작업을 AI 파이프라인으로 자동화. 비용 절감을 위해 기매핑 데이터를 누적 활용하는 구조로 설계, 오매핑 케이스를 감지하고 보완하는 로직 구현이 핵심 난관",
     tag: "AI/Search",
     period: "진행 중",
-    challenges: "다양한 쇼핑몰·카테고리 간 명칭 불일치로 인한 수동 매핑 비용 증가",
-    solutions: "콘텐츠를 벡터화하고 키워드를 지속 색인하여 벡터 유사도 기반 자동 분류로 매핑 효율 지속 개선",
+    challenges: "다양한 쇼핑몰·카테고리 간 명칭 불일치로 인한 수동 매핑 비용 증가 및 담당자 의존도 심화",
+    solutions: "NestJS Scheduler + Elasticsearch 기반 자동화 파이프라인 구축 — AI 벡터 유사도로 자동 분류, 수작업 비용 대폭 감소",
     tech: ["Elasticsearch", "NestJS", "TypeScript", "AI/LLM"],
   },
   {
@@ -54,7 +83,7 @@ const EXPERIENCE = [
     solutions: "NestJS 마이크로서비스 아키텍처 도입 및 API 규격 표준화를 통해 신규 연동 생산성 향상",
     tech: ["Node.js", "NestJS", "TypeScript", "PHP"],
   },
-    {
+  {
     year: "2023",
     type: "Work",
     title: "인프라 고도화 및 이미지 서비스 리뉴얼",
@@ -82,12 +111,12 @@ const EXPERIENCE = [
     year: "2021",
     type: "Work",
     title: "대형 마켓 API 연동 및 물류 자동화",
-    desc: "카카오 톡스토어 연동 및 굿스플로 3PL 물류 인터페이스 구축"
+    desc: "카카오 톡스토어 연동 및 굿스플로 3PL 물류 인터페이스 구축",
     challenge: "카카오 톡스토어 신규 마켓 연동과 굿스플로 송장발행 솔루션 구축 시, WinForms 환경에서 웹뷰 연동이 필요해 Edge/Chrome 드라이버를 직접 활용하는 방식으로 해결",
     tag: "신규 마켓/물류",
     period: "01~10",
-    challenges: "대용량 주문 발생 시 3PL 연동 트래픽 폭주로 인한 인터페이스 타임아웃",
-    solutions: "Batch 처리 로직 도입 및 API Rate Limiting 대응을 위한 재시도 전략 최적화",
+    challenges: "대용량 주문 발생 시 3PL 연동 트래픽 폭주로 인한 인터페이스 타임아웃 및 수동 처리 비용 급증",
+    solutions: "Batch 스케줄러 기반 자동화 파이프라인 도입 — API Rate Limiting 대응 재시도 전략으로 송장 자동화 처리율 100% 달성",
     tech: ["PHP", "Java", "REST API"],
   },
   {
@@ -156,8 +185,8 @@ const EXPERIENCE_BY_YEAR = EXPERIENCE.reduce<{ year: string; items: typeof EXPER
 
 const SKILLS = [
   {
-    category: "Backend Expert",
-    items: ["Java / Spring Boot", "Node.js / NestJS", "TypeScript", "PHP", "REST API / SOAP"],
+    category: "Backend & Automation",
+    items: ["Node.js / NestJS (TypeScript)", "NestJS Scheduler / Batch 자동화", "Java / Spring Boot", "REST API 설계 및 연동", "메시지 큐 (Redis / Bull)"],
   },
   {
     category: "Frontend",
@@ -168,8 +197,8 @@ const SKILLS = [
     items: ["MySQL", "Elasticsearch (색인/검색 최적화)", "Supabase", "Redis (Caching/MQ)"],
   },
   {
-    category: "Infra & Cloud",
-    items: ["VMWare (Private Cloud)", "Google Cloud Run / Cloud Functions", "Docker", "GitHub Actions", "Kubernetes", "ArgoCD", "GitLab CI/CD"],
+    category: "Infra & CI/CD",
+    items: ["Google Cloud Run (서버리스 운영)", "GitHub Actions CI/CD", "Docker / Docker Compose", "Kubernetes / ArgoCD", "GitLab CI/CD", "VMWare (Private Cloud)"],
   },
   {
     category: "Extra Capabilities",
@@ -273,7 +302,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex flex-wrap gap-1.5 mb-6 pb-6 border-b border-gray-100">
-                  {["Java", "Spring", "NestJS", "Next.js", "TypeScript", "MySQL"].map((t) => (
+                  {["NestJS", "Node.js", "TypeScript", "Next.js", "Cloud Run", "CI/CD"].map((t) => (
                     <span
                       key={t}
                       className="text-xs px-2 py-1 bg-gray-50 text-gray-600 rounded-md font-medium border border-gray-100"
@@ -317,7 +346,7 @@ export default function Home() {
               {
                 num: "10년+",
                 label: "백엔드 전문",
-                desc: "항공·여행·이커머스 도메인에서 대규모 트래픽 처리와 시스템 현대화를 주도",
+                desc: "항공·여행·이커머스·핀테크 도메인에서 대규모 API 연동, 자동화 시스템 설계와 운영을 주도",
               },
               {
                 num: "풀스택",
@@ -326,8 +355,8 @@ export default function Home() {
               },
               {
                 num: "자동화",
-                label: "AI & Automation",
-                desc: "AI 기반 자동매매 플랫폼 개발, 물류 자동화, CI/CD 파이프라인 구축 경험",
+                label: "Automation & Pipeline",
+                desc: "NestJS Scheduler 기반 자동화 파이프라인, 물류·마켓 연동 자동화, GitHub Actions CI/CD → Cloud Run 무중단 배포 운영",
               },
             ].map((item) => (
               <div
@@ -359,11 +388,10 @@ export default function Home() {
             {PROJECTS.map((project) => (
               <div
                 key={project.name}
-                className={`rounded-2xl border overflow-hidden hover:shadow-xl transition-all duration-300 ${
-                  project.index === 0
+                className={`rounded-2xl border overflow-hidden hover:shadow-xl transition-all duration-300 ${project.index === 0
                     ? "border-indigo-100 bg-gradient-to-br from-indigo-50/60 to-violet-50/40 hover:border-indigo-200"
                     : "border-slate-100 bg-gradient-to-br from-slate-50/80 to-blue-50/30 hover:border-slate-200"
-                }`}
+                  }`}
               >
                 <div className="p-8 md:p-10">
                   {/* Header */}
@@ -474,9 +502,8 @@ export default function Home() {
                     </div>
                     <ChevronDown
                       size={20}
-                      className={`text-gray-400 flex-shrink-0 transition-transform duration-300 ${
-                        isOpen ? "rotate-180" : ""
-                      }`}
+                      className={`text-gray-400 flex-shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+                        }`}
                     />
                   </button>
 
@@ -498,11 +525,10 @@ export default function Home() {
                             <div className="flex flex-wrap items-center gap-2 mb-2">
                               <h3 className="text-sm font-bold text-slate-900">{item.title}</h3>
                               <span
-                                className={`text-[11px] px-2 py-0.5 rounded-full font-semibold ${
-                                  item.type === "Work"
+                                className={`text-[11px] px-2 py-0.5 rounded-full font-semibold ${item.type === "Work"
                                     ? "bg-blue-50 text-blue-600"
                                     : "bg-emerald-50 text-emerald-600"
-                                }`}
+                                  }`}
                               >
                                 {item.type === "Work" ? "Career" : "Project"}
                               </span>
