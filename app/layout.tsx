@@ -5,6 +5,12 @@ import Navbar from "@/components/Navbar";
 export const metadata: Metadata = {
   title: "조두현 | 풀스택 개발자 포트폴리오",
   description: "10년+ 경력 풀스택 개발자 조두현의 포트폴리오 — Java, Spring, NestJS, Next.js, AI 자동화 플랫폼",
+  other: {
+    "Cache-Control": "no-cache, no-store, must-revalidate",
+    "Pragma": "no-cache",
+    "Expires": "0",
+    "build-version": "202603280948",
+  },
 };
 
 export default function RootLayout({
