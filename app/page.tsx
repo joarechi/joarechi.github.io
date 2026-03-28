@@ -116,7 +116,7 @@ const SKILLS = [
   },
   {
     category: "Database & Search",
-    items: ["MySQL / MSSQL / PostgreSQL", "Elasticsearch (Vector Search)", "Oracle", "MongoDB", "Supabase"],
+    items: ["MySQL / MSSQL", "Elasticsearch (Vector Search)", "Redis (Caching)", "Supabase (Auth/DB)"],
   },
   {
     category: "Infra & DevOps",
