@@ -15,36 +15,6 @@ const ME = {
   location: "Seoul, Korea",
 };
 
-const PROJECTS = [
-  {
-    name: "rich-worker",
-    sub: "AI 기반 자동화 파이프라인 플랫폼",
-    desc: "실시간 외부 데이터 수집 → AI 분석 → 자동 실행까지 전 과정을 자동화한 풀스택 플랫폼. NestJS 스케줄러 기반 자동화 엔진과 GitHub Actions CI/CD를 통해 Cloud Run에 무중단 배포.",
-    points: [
-      "외부 데이터 수집 → AI 분석 → 자동 실행 파이프라인 설계 (NestJS Scheduler)",
-      "REST API 연동 기반 규칙 + AI 하이브리드 자동화 전략 엔진 구현",
-      "GitHub Actions CI/CD → Google Cloud Run 무중단 자동 배포",
-      "Supabase 기반 실시간 모니터링 대시보드 (Next.js)",
-    ],
-    tech: ["NestJS", "Next.js", "TypeScript", "Supabase", "Google Cloud Run", "GitHub Actions", "AI/LLM"],
-    github: "https://github.com/joarechi/rich-worker",
-    index: 0,
-  },
-  {
-    name: "match-master",
-    sub: "풀스택 매칭 서비스",
-    desc: "기획·설계·개발·배포까지 단독으로 완성한 양방향 매칭 플랫폼. 백엔드 API 서버부터 프론트엔드 UI까지 전체 기술 스택을 혼자 구현한 실서비스.",
-    points: [
-      "양방향 매칭 알고리즘 설계 및 API 구현",
-      "NestJS + TypeScript 기반 RESTful API 서버",
-      "Redis 기반 실시간 알림 및 비동기 처리",
-      "단독 풀스택 기획·개발·배포 일괄 수행",
-    ],
-    tech: ["NestJS", "TypeScript", "Next.js", "MySQL", "Redis"],
-    github: "https://github.com/joarechi/match-master",
-    index: 1,
-  },
-];
 
 const EXPERIENCE = [
   {
@@ -256,10 +226,10 @@ export default function Home() {
 
               <div className="flex flex-wrap gap-4 animate-fade-in opacity-0" style={{ animationDelay: "0.45s" }}>
                 <a
-                  href="#projects"
+                  href="#career"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 hover:bg-indigo-600 text-white font-semibold rounded-xl transition-colors text-sm"
                 >
-                  프로젝트 보기 <ArrowRight size={15} />
+                  경력 보기 <ArrowRight size={15} />
                 </a>
                 <a
                   href={ME.github}
@@ -373,89 +343,6 @@ export default function Home() {
       </section>
 
 
-      {/* ══════════════════════════════════════
-          PROJECTS
-      ══════════════════════════════════════ */}
-      <section id="projects" className="py-24 px-6">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-indigo-500 text-xs font-mono tracking-[0.25em] uppercase mb-5">
-            Projects
-          </p>
-          <h2 className="text-4xl font-black text-slate-900 mb-3">하이라이트 프로젝트</h2>
-          <p className="text-gray-400 mb-16">직접 기획하고 구현한 사이드 프로젝트</p>
-
-          <div className="space-y-6">
-            {PROJECTS.map((project) => (
-              <div
-                key={project.name}
-                className={`rounded-2xl border overflow-hidden hover:shadow-xl transition-all duration-300 ${project.index === 0
-                    ? "border-indigo-100 bg-gradient-to-br from-indigo-50/60 to-violet-50/40 hover:border-indigo-200"
-                    : "border-slate-100 bg-gradient-to-br from-slate-50/80 to-blue-50/30 hover:border-slate-200"
-                  }`}
-              >
-                <div className="p-8 md:p-10">
-                  {/* Header */}
-                  <div className="flex flex-wrap items-start justify-between gap-4 mb-5">
-                    <div>
-                      <h3 className="text-2xl font-black text-slate-900 font-mono tracking-tight">
-                        {project.name}
-                      </h3>
-                      <p className="text-indigo-600 font-semibold text-sm mt-1">{project.sub}</p>
-                    </div>
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-slate-900 border border-gray-200 hover:border-slate-400 bg-white px-4 py-2 rounded-lg transition-colors font-medium"
-                    >
-                      <Github size={15} />
-                      GitHub
-                    </a>
-                  </div>
-
-                  <p className="text-gray-600 leading-relaxed mb-8 max-w-3xl text-sm md:text-base">
-                    {project.desc}
-                  </p>
-
-                  <div className="grid md:grid-cols-2 gap-8">
-                    {/* Key Features */}
-                    <div>
-                      <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-[0.15em] mb-4">
-                        Key Features
-                      </h4>
-                      <ul className="space-y-2.5">
-                        {project.points.map((point) => (
-                          <li key={point} className="flex items-start gap-2.5 text-sm text-gray-700">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-500 flex-shrink-0" />
-                            {point}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Tech Stack */}
-                    <div>
-                      <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-[0.15em] mb-4">
-                        Tech Stack
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tech.map((t) => (
-                          <span
-                            key={t}
-                            className="px-3 py-1.5 bg-white text-slate-800 text-sm font-semibold rounded-lg border border-gray-200 shadow-sm"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
 
       {/* ══════════════════════════════════════

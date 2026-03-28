@@ -5,7 +5,6 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { href: "#about", label: "소개" },
-  { href: "#projects", label: "프로젝트" },
   { href: "#career", label: "경력" },
   { href: "#skills", label: "기술 스택" },
   { href: "#contact", label: "연락처" },
