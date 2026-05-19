@@ -262,9 +262,9 @@ export default async function Home() {
 
   return (
     <main className="relative overflow-hidden bg-transparent text-slate-900">
-      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(127,157,150,0.18),transparent_32%),radial-gradient(circle_at_top_right,rgba(243,181,176,0.18),transparent_28%),linear-gradient(180deg,#faf7f1_0%,#ffffff_78%)]" />
-      <div className="pointer-events-none absolute right-[-5rem] top-40 -z-10 h-80 w-80 rounded-full bg-[#dbe7e4]/60 blur-3xl" />
-      <div className="pointer-events-none absolute left-[-6rem] top-[32rem] -z-10 h-96 w-96 rounded-full bg-[#f3e6d7]/70 blur-3xl" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[42rem] bg-[radial-gradient(circle_at_top_left,rgba(112,118,116,0.12),transparent_32%),radial-gradient(circle_at_top_right,rgba(200,191,180,0.1),transparent_28%),linear-gradient(180deg,#f9f5f0_0%,#ffffff_78%)]" />
+      <div className="pointer-events-none absolute right-[-5rem] top-40 -z-10 h-80 w-80 rounded-full bg-[#e1e1dc]/60 blur-3xl" />
+      <div className="pointer-events-none absolute left-[-6rem] top-[32rem] -z-10 h-96 w-96 rounded-full bg-[#ebe4da]/70 blur-3xl" />
 
       <section id="top" className="pt-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 lg:grid-cols-[1.35fr_0.65fr] lg:gap-16 lg:py-24">
@@ -281,7 +281,7 @@ export default async function Home() {
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 rounded-full border border-[#7f9d96] bg-[#7f9d96] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#6f8c86]"
+                className="inline-flex items-center gap-2 rounded-full border border-[#4d5653] bg-[#4d5653] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#39403f]"
               >
                 주요 프로젝트 보기 <ArrowRight size={15} />
               </a>
@@ -289,7 +289,7 @@ export default async function Home() {
                 href={data.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-[#cad7d2] bg-white px-6 py-3 text-sm font-semibold text-[#42605b] transition-colors hover:border-[#7f9d96] hover:text-[#243836]"
+                className="inline-flex items-center gap-2 rounded-full border border-[#d4cec4] bg-white px-6 py-3 text-sm font-semibold text-[#5a605c] transition-colors hover:border-[#4d5653] hover:text-[#2a302f]"
               >
                 GitHub
               </a>
@@ -309,11 +309,11 @@ export default async function Home() {
           </div>
 
           <aside
-            className="hero-enter rounded-[2rem] border border-slate-900/10 bg-white p-6 shadow-[0_20px_50px_rgba(15,23,42,0.05)]"
+            className="hero-enter rounded-[2rem] border border-stone-900/10 bg-white p-6 shadow-[0_20px_50px_rgba(15,23,42,0.05)]"
             style={{ animationDelay: "120ms" }}
           >
-            <div className="rounded-[1.5rem] border border-[#d8e3df] bg-[#fbf8f2] p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#6d8b83]">Status</p>
+            <div className="rounded-[1.5rem] border border-[#d7d2c8] bg-[#fbf9f4] p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#70716d]">Status</p>
               <p className="mt-2 text-2xl font-semibold tracking-[-0.05em] text-slate-950">{data.status}</p>
               <p className="mt-2 text-sm leading-7 text-slate-700">운영 안정성과 비즈니스 연속성을 함께 지키는 방향으로 일합니다.</p>
             </div>
@@ -324,14 +324,14 @@ export default async function Home() {
               <InfoPanel label="GitHub" value={data.github.replace("https://", "")} />
             </dl>
 
-            <div className="mt-6 border-t border-slate-900/5 pt-6">
+            <div className="mt-6 border-t border-stone-900/5 pt-6">
               <BadgeList items={data.heroTags.slice(0, 8)} />
             </div>
           </aside>
         </div>
       </section>
 
-      <section id="about" className="border-t border-slate-900/10 bg-white py-20">
+      <section id="about" className="border-t border-stone-900/10 bg-white/40 py-20">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <SectionTitle title="ABOUT" subtitle="기술로 비즈니스의 연속성을 확보하고, 팀의 성장을 설계합니다." />
@@ -366,7 +366,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="skills" className="border-t border-slate-900/10 bg-[#faf8f2] py-20">
+      <section id="skills" className="border-t border-stone-900/10 bg-[#f6f1e8] py-20">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <SectionTitle title="SKILLS" subtitle="레거시 전환부터 AI 적용까지 이어지는 실전 스택" />
@@ -375,7 +375,7 @@ export default async function Home() {
           <div className="mt-10 grid gap-5 lg:grid-cols-2">
             {data.skills.map((group, index) => (
               <Reveal key={group.category} delay={index * 90}>
-                <article className="rounded-[1.75rem] border border-slate-900/10 bg-white p-6 shadow-[0_20px_50px_rgba(15,23,42,0.05)]">
+                <article className="rounded-[1.75rem] border border-stone-900/10 bg-white p-6 shadow-[0_20px_50px_rgba(15,23,42,0.05)]">
                   <h3 className="text-lg font-semibold tracking-[-0.04em] text-slate-950">{group.category}</h3>
                   <div className="mt-4">
                     <BadgeList items={group.items} />
@@ -387,7 +387,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="timeline" className="border-t border-slate-900/10 bg-white py-20">
+      <section id="timeline" className="border-t border-stone-900/10 bg-white/40 py-20">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <SectionTitle title="TIMELINE" />
@@ -396,16 +396,16 @@ export default async function Home() {
           <Reveal className="mt-8 rounded-[1.75rem] border border-slate-200 bg-white p-5 shadow-[0_20px_50px_rgba(15,23,42,0.04)]">
             <div className="flex gap-5 overflow-x-auto pb-2">
               {[...data.career]
-                .sort((a, b) => getStartOrder(a.period) - getStartOrder(b.period))
+                .sort((a, b) => getStartOrder(b.period) - getStartOrder(a.period))
                 .map((company, index) => (
                 <Reveal key={`${company.company}-${company.period}`} delay={index * 70}>
                   <article className="min-w-[22rem] rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
-                    <p className="text-xs font-medium tracking-[-0.03em] text-slate-500">
+                    <p className="text-sm font-medium tracking-[-0.04em] text-slate-500">
                       {company.company}
                     </p>
-                    <div className="flex items-center gap-2">
+                    <div className="mt-1.5 flex items-center gap-2">
                       <span className="h-2.5 w-2.5 rounded-full bg-slate-400" />
-                      <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-400">
+                      <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">
                         {getStartYear(company.period)}
                       </span>
                     </div>
@@ -434,7 +434,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="projects" className="border-t border-slate-900/10 bg-white py-20">
+      <section id="projects" className="border-t border-stone-900/10 bg-white/40 py-20">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <SectionTitle title="PROJECTS" subtitle="대표 프로젝트" />
@@ -449,7 +449,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="career" className="border-t border-slate-900/10 bg-[#faf8f2] py-20">
+      <section id="career" className="border-t border-stone-900/10 bg-[#f6f1e8] py-20">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <SectionTitle title="CAREER" subtitle="경력" />
@@ -465,7 +465,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="education" className="border-t border-slate-900/10 bg-white py-20">
+      <section id="education" className="border-t border-stone-900/10 bg-white/40 py-20">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <SectionTitle title="EDUCATION / CERTIFICATIONS" subtitle="학력 / 자격증" />

@@ -4,17 +4,17 @@
 
 html {
   scroll-behavior: smooth;
-  background: #fbfaf6;
+  background: #f8f5f0;
   scroll-padding-top: 6rem;
 }
 
 body {
   font-family: "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif;
   background:
-    radial-gradient(circle at top left, rgba(148, 163, 184, 0.08), transparent 24%),
-    radial-gradient(circle at top right, rgba(244, 205, 166, 0.08), transparent 22%),
-    linear-gradient(180deg, #fbfaf6 0%, #f8f7f2 54%, #f2eee7 100%);
-  color: #0f172a;
+    radial-gradient(circle at top left, rgba(121, 126, 124, 0.08), transparent 24%),
+    radial-gradient(circle at top right, rgba(189, 184, 175, 0.08), transparent 22%),
+    linear-gradient(180deg, #f8f5ef 0%, #f4f0ea 54%, #ede8de 100%);
+  color: #101827;
 }
 
 h1,
@@ -25,8 +25,8 @@ h3,
 }
 
 ::selection {
-  background: rgba(127, 157, 150, 0.25);
-  color: #0f172a;
+  background: rgba(78, 83, 80, 0.18);
+  color: #101827;
 }
 
 @keyframes fade-up {
@@ -55,7 +55,7 @@ h3,
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-slate-950 via-slate-700 to-slate-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-slate-950 via-slate-700 to-stone-400 bg-clip-text text-transparent;
   }
 
   .hero-enter {
