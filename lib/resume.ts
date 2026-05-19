@@ -641,7 +641,7 @@ const resumeData: ResumeData = {
     },
     {
       name: "한식조리기능사",
-      date: "",
+      date: "2009.10",
       issuer: "한국산업인력공단",
     },
   ],
