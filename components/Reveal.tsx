@@ -14,7 +14,7 @@ export default function Reveal({
   children,
   className = "",
   delay = 0,
-  threshold = 0.16,
+  threshold = 0,
 }: RevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
@@ -39,7 +39,7 @@ export default function Reveal({
       },
       {
         threshold,
-        rootMargin: "0px 0px -8% 0px",
+        rootMargin: "0px 0px 20% 0px",
       },
     );
 

@@ -101,8 +101,8 @@ const resumeData: ResumeData = {
     "TypeScript",
     "Docker",
     "Kubernetes",
-    "ArgoCD",
     "Kafka",
+    "ArgoCD",
     "MySQL",
     "Elasticsearch",
     "LibreChat",
@@ -596,7 +596,7 @@ const resumeData: ResumeData = {
   skills: [
     {
       category: "Backend",
-      items: ["Java", "Spring Boot", "NestJS", "Node.js", "TypeScript", "C#", ".NET", "PHP", "Python"],
+      items: ["Java", "Spring Boot", "NestJS", "Node.js", "TypeScript", "Kafka", "C#", ".NET", "PHP", "Python"],
     },
     {
       category: "Frontend",
@@ -608,7 +608,7 @@ const resumeData: ResumeData = {
     },
     {
       category: "DevOps & Infrastructure",
-      items: ["Kubernetes", "Docker", "ArgoCD", "GitOps", "VMware", "Git", "GitHub", "SVN"],
+      items: ["Kubernetes", "Docker", "ArgoCD", "GitOps", "Grafana", "Prometheus", "Git", "GitHub", "SVN"],
     },
     {
       category: "AI & Data",
