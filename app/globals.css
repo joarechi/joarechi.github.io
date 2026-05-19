@@ -2,20 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
 html {
   scroll-behavior: smooth;
+  background: #fbfaf6;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #ffffff;
+  font-family: "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(148, 163, 184, 0.08), transparent 24%),
+    radial-gradient(circle at top right, rgba(244, 205, 166, 0.08), transparent 22%),
+    linear-gradient(180deg, #fbfaf6 0%, #f8f7f2 54%, #f2eee7 100%);
+  color: #0f172a;
+}
+
+h1,
+h2,
+h3,
+.display-serif {
+  letter-spacing: -0.05em;
+}
+
+::selection {
+  background: rgba(127, 157, 150, 0.25);
   color: #0f172a;
 }
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-indigo-500 to-violet-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-slate-950 via-slate-700 to-slate-500 bg-clip-text text-transparent;
   }
 }

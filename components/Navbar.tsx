@@ -5,9 +5,10 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { href: "#about", label: "소개" },
-  { href: "#career", label: "경력" },
   { href: "#skills", label: "기술 스택" },
-  { href: "#contact", label: "연락처" },
+  { href: "#projects", label: "프로젝트" },
+  { href: "#career", label: "경력" },
+  { href: "#education", label: "학력 / 자격증" },
 ];
 
 export default function Navbar() {
@@ -24,21 +25,21 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100"
-          : "bg-transparent"
+          ? "border-b border-slate-900/5 bg-white/82 backdrop-blur-xl"
+          : "bg-white/48 backdrop-blur-md"
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="text-xl font-black text-slate-900 tracking-tight">
-          조두현<span className="text-indigo-500">.</span>
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <a href="#top" className="text-sm font-semibold uppercase tracking-[0.32em] text-slate-950">
+          조두현
         </a>
 
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm font-medium text-gray-500 hover:text-indigo-500 transition-colors"
+                className="text-sm font-medium text-slate-700 transition-colors hover:text-slate-950"
               >
                 {link.label}
               </a>
@@ -47,7 +48,7 @@ export default function Navbar() {
         </ul>
 
         <button
-          className="md:hidden p-2 text-gray-600 hover:text-slate-900 transition-colors"
+          className="p-2 text-slate-600 transition-colors hover:text-slate-950 md:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="메뉴"
         >
@@ -56,13 +57,13 @@ export default function Navbar() {
       </nav>
 
       {menuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-4 shadow-lg">
+        <div className="flex flex-col gap-4 border-t border-slate-900/5 bg-white/92 px-6 py-4 backdrop-blur-xl md:hidden">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="text-sm font-medium text-gray-600 hover:text-indigo-500 transition-colors"
+              className="text-sm font-medium text-slate-700 transition-colors hover:text-slate-950"
             >
               {link.label}
             </a>

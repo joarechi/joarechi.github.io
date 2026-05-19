@@ -5,6 +5,10 @@ import Navbar from "@/components/Navbar";
 export const metadata: Metadata = {
   title: "조두현 | 풀스택 개발자 포트폴리오",
   description: "10년+ 경력 풀스택 개발자 조두현의 포트폴리오 — Java, Spring, NestJS, Next.js, AI 자동화 플랫폼",
+  icons: {
+    icon: "/icon.svg",
+    apple: "/icon.svg",
+  },
   other: {
     "Cache-Control": "no-cache, no-store, must-revalidate",
     "Pragma": "no-cache",
@@ -20,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className="bg-white text-slate-900">
+      <body className="bg-[#fbfaf6] text-slate-900">
         <Navbar />
         {children}
       </body>
