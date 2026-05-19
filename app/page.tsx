@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
 import { loadResumeData } from "@/lib/resume";
+import Reveal from "@/components/Reveal";
 
 function SectionEyebrow({ children }: { children: ReactNode }) {
   return (
@@ -267,7 +268,7 @@ export default async function Home() {
 
       <section id="top" className="pt-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 lg:grid-cols-[1.35fr_0.65fr] lg:gap-16 lg:py-24">
-          <div>
+          <div className="hero-enter">
             <SectionEyebrow>Portfolio</SectionEyebrow>
             <h1 className="mt-4 max-w-4xl text-[clamp(3.5rem,8vw,7rem)] font-semibold leading-[0.95] tracking-[-0.08em] text-slate-950">
               {data.name}
@@ -295,13 +296,22 @@ export default async function Home() {
             </div>
 
             <div className="mt-10 grid gap-5 border-t border-slate-900/10 pt-8 sm:grid-cols-3">
-              {data.heroStats.map((stat) => (
-                <StatCard key={`${stat.value}-${stat.label}`} {...stat} />
+              {data.heroStats.map((stat, index) => (
+                <div
+                  key={`${stat.value}-${stat.label}`}
+                  className="hero-enter"
+                  style={{ animationDelay: `${180 + index * 90}ms` }}
+                >
+                  <StatCard {...stat} />
+                </div>
               ))}
             </div>
           </div>
 
-          <aside className="rounded-[2rem] border border-slate-900/10 bg-white/85 p-6 shadow-[0_20px_50px_rgba(15,23,42,0.05)] backdrop-blur">
+          <aside
+            className="hero-enter rounded-[2rem] border border-slate-900/10 bg-white/85 p-6 shadow-[0_20px_50px_rgba(15,23,42,0.05)] backdrop-blur"
+            style={{ animationDelay: "120ms" }}
+          >
             <div className="rounded-[1.5rem] border border-[#d8e3df] bg-[#fbf8f2] p-5">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#6d8b83]">Status</p>
               <p className="mt-2 text-2xl font-semibold tracking-[-0.05em] text-slate-950">{data.status}</p>
@@ -323,44 +333,55 @@ export default async function Home() {
 
       <section id="about" className="border-t border-slate-900/10 bg-white/35 py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <SectionTitle title="ABOUT" subtitle="기술로 비즈니스의 연속성을 확보하고, 팀의 성장을 설계합니다." />
+          <Reveal>
+            <SectionTitle title="ABOUT" subtitle="기술로 비즈니스의 연속성을 확보하고, 팀의 성장을 설계합니다." />
+          </Reveal>
 
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            <FeatureCard
-              title="레거시 현대화"
-              body="오래 운영된 시스템의 의존성과 업무 흐름을 분석하고, 비즈니스 연속성을 유지한 채 점진적으로 개선합니다."
-            />
-            <FeatureCard
-              title="이커머스 도메인"
-              body="상품, 주문, 배송, 외부 마켓 API 연동 등 이커머스 운영의 핵심 흐름을 실무 기준으로 설계하고 다뤄왔습니다."
-            />
-            <FeatureCard
-              title="안정적인 운영"
-              body="장애 대응 중심의 운영에서 벗어나 자동화와 표준화로 팀이 더 가치 있는 개발에 집중할 수 있게 돕습니다."
-            />
-            <FeatureCard
-              title="AI 실무 적용"
-              body="AI 추천, 이미지 크롭, RAG 기반 사내 지식 검색처럼 실제 업무 흐름에 붙는 기능을 구현해 왔습니다."
-            />
+            <Reveal delay={0}>
+              <FeatureCard
+                title="레거시 현대화"
+                body="오래 운영된 시스템의 의존성과 업무 흐름을 분석하고, 비즈니스 연속성을 유지한 채 점진적으로 개선합니다."
+              />
+            </Reveal>
+            <Reveal delay={80}>
+              <FeatureCard
+                title="이커머스 도메인"
+                body="상품, 주문, 배송, 외부 마켓 API 연동 등 이커머스 운영의 핵심 흐름을 실무 기준으로 설계하고 다뤄왔습니다."
+              />
+            </Reveal>
+            <Reveal delay={160}>
+              <FeatureCard
+                title="안정적인 운영"
+                body="장애 대응 중심의 운영에서 벗어나 자동화와 표준화로 팀이 더 가치 있는 개발에 집중할 수 있게 돕습니다."
+              />
+            </Reveal>
+            <Reveal delay={240}>
+              <FeatureCard
+                title="AI 실무 적용"
+                body="AI 추천, 이미지 크롭, RAG 기반 사내 지식 검색처럼 실제 업무 흐름에 붙는 기능을 구현해 왔습니다."
+              />
+            </Reveal>
           </div>
         </div>
       </section>
 
       <section id="skills" className="border-t border-slate-900/10 bg-[#faf8f2] py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <SectionTitle title="SKILLS" subtitle="레거시 전환부터 AI 적용까지 이어지는 실전 스택" />
+          <Reveal>
+            <SectionTitle title="SKILLS" subtitle="레거시 전환부터 AI 적용까지 이어지는 실전 스택" />
+          </Reveal>
 
           <div className="mt-10 grid gap-5 lg:grid-cols-2">
-            {data.skills.map((group) => (
-              <article
-                key={group.category}
-                className="rounded-[1.75rem] border border-slate-900/10 bg-white p-6 shadow-[0_20px_50px_rgba(15,23,42,0.05)]"
-              >
-                <h3 className="text-lg font-semibold tracking-[-0.04em] text-slate-950">{group.category}</h3>
-                <div className="mt-4">
-                  <BadgeList items={group.items} />
-                </div>
-              </article>
+            {data.skills.map((group, index) => (
+              <Reveal key={group.category} delay={index * 90}>
+                <article className="rounded-[1.75rem] border border-slate-900/10 bg-white p-6 shadow-[0_20px_50px_rgba(15,23,42,0.05)]">
+                  <h3 className="text-lg font-semibold tracking-[-0.04em] text-slate-950">{group.category}</h3>
+                  <div className="mt-4">
+                    <BadgeList items={group.items} />
+                  </div>
+                </article>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -368,53 +389,58 @@ export default async function Home() {
 
       <section id="timeline" className="border-t border-slate-900/10 bg-white/35 py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <SectionTitle title="TIMELINE" />
+          <Reveal>
+            <SectionTitle title="TIMELINE" />
+          </Reveal>
 
-          <div className="mt-8 rounded-[1.75rem] border border-slate-200 bg-white p-5 shadow-[0_20px_50px_rgba(15,23,42,0.04)]">
+          <Reveal className="mt-8 rounded-[1.75rem] border border-slate-200 bg-white p-5 shadow-[0_20px_50px_rgba(15,23,42,0.04)]">
             <div className="flex gap-5 overflow-x-auto pb-2">
               {[...data.career]
                 .sort((a, b) => getStartOrder(a.period) - getStartOrder(b.period))
-                .map((company) => (
-                <article
-                  key={`${company.company}-${company.period}`}
-                  className="min-w-[22rem] rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6"
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="h-2.5 w-2.5 rounded-full bg-slate-400" />
-                    <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-400">
-                      {getStartYear(company.period)}
-                    </span>
-                  </div>
-                  <p className="mt-2 text-sm leading-5 text-slate-500">{company.period}</p>
-                  <p className="mt-3 text-sm font-medium leading-6 text-slate-600">
-                    {company.domains}
-                  </p>
-                  <div className="mt-4 border-t border-slate-200 pt-4">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-slate-400">
-                      핵심 과제
+                .map((company, index) => (
+                <Reveal key={`${company.company}-${company.period}`} delay={index * 70}>
+                  <article className="min-w-[22rem] rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
+                    <div className="flex items-center gap-2">
+                      <span className="h-2.5 w-2.5 rounded-full bg-slate-400" />
+                      <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-400">
+                        {getStartYear(company.period)}
+                      </span>
+                    </div>
+                    <p className="mt-2 text-sm leading-5 text-slate-500">{company.period}</p>
+                    <p className="mt-3 text-sm font-medium leading-6 text-slate-600">
+                      {company.domains}
                     </p>
-                    <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-600">
-                      {company.items.slice(0, 3).map((item) => (
-                        <li key={item.title} className="flex gap-2">
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-300" />
-                          <span className="line-clamp-2">{item.title}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </article>
+                    <div className="mt-4 border-t border-slate-200 pt-4">
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-slate-400">
+                        핵심 과제
+                      </p>
+                      <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-600">
+                        {company.items.slice(0, 3).map((item) => (
+                          <li key={item.title} className="flex gap-2">
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-300" />
+                            <span className="line-clamp-2">{item.title}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </article>
+                </Reveal>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section id="projects" className="border-t border-slate-900/10 bg-white/35 py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <SectionTitle title="PROJECTS" subtitle="대표 프로젝트" />
+          <Reveal>
+            <SectionTitle title="PROJECTS" subtitle="대표 프로젝트" />
+          </Reveal>
           <div className="mt-10 space-y-8">
-            {data.featuredProjects.map((project) => (
-              <ProjectCard key={project.title} {...project} />
+            {data.featuredProjects.map((project, index) => (
+              <Reveal key={project.title} delay={index * 90}>
+                <ProjectCard {...project} />
+              </Reveal>
             ))}
           </div>
         </div>
@@ -422,11 +448,15 @@ export default async function Home() {
 
       <section id="career" className="border-t border-slate-900/10 bg-[#faf8f2] py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <SectionTitle title="CAREER" subtitle="경력" />
+          <Reveal>
+            <SectionTitle title="CAREER" subtitle="경력" />
+          </Reveal>
 
           <div className="mt-10 space-y-8">
-            {data.career.map((company) => (
-              <CareerCard key={company.company} {...company} />
+            {data.career.map((company, index) => (
+              <Reveal key={company.company} delay={index * 90}>
+                <CareerCard {...company} />
+              </Reveal>
             ))}
           </div>
         </div>
@@ -434,37 +464,37 @@ export default async function Home() {
 
       <section id="education" className="border-t border-slate-900/10 bg-white/35 py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <SectionTitle title="EDUCATION / CERTIFICATIONS" subtitle="학력 / 자격증" />
+          <Reveal>
+            <SectionTitle title="EDUCATION / CERTIFICATIONS" subtitle="학력 / 자격증" />
+          </Reveal>
 
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             <div className="space-y-5">
-              {data.education.map((item) => (
-                <article
-                  key={item.school}
-                  className="flex min-h-[13rem] flex-col rounded-[1.5rem] border border-slate-900/10 bg-white p-6 shadow-[0_20px_50px_rgba(15,23,42,0.04)]"
-                >
-                  <h3 className="text-xl font-semibold tracking-[-0.04em] text-slate-950">{item.school}</h3>
-                  <div className="mt-3 space-y-1 text-sm leading-7 text-slate-600">
-                    <p>{item.period}</p>
-                    <p>{item.major}</p>
-                    <p>{item.status}</p>
-                  </div>
-                </article>
+              {data.education.map((item, index) => (
+                <Reveal key={item.school} delay={index * 90}>
+                  <article className="flex min-h-[13rem] flex-col rounded-[1.5rem] border border-slate-900/10 bg-white p-6 shadow-[0_20px_50px_rgba(15,23,42,0.04)]">
+                    <h3 className="text-xl font-semibold tracking-[-0.04em] text-slate-950">{item.school}</h3>
+                    <div className="mt-3 space-y-1 text-sm leading-7 text-slate-600">
+                      <p>{item.period}</p>
+                      <p>{item.major}</p>
+                      <p>{item.status}</p>
+                    </div>
+                  </article>
+                </Reveal>
               ))}
             </div>
 
             <div className="space-y-5">
-              {data.certifications.map((item) => (
-                <article
-                  key={item.name}
-                  className="flex min-h-[13rem] flex-col rounded-[1.5rem] border border-slate-900/10 bg-white p-6 shadow-[0_20px_50px_rgba(15,23,42,0.04)]"
-                >
-                  <h3 className="text-xl font-semibold tracking-[-0.04em] text-slate-950">{item.name}</h3>
-                  <div className="mt-3 space-y-1 text-sm leading-7 text-slate-600">
-                    {item.date ? <p>{item.date}</p> : null}
-                    <p>{item.issuer}</p>
-                  </div>
-                </article>
+              {data.certifications.map((item, index) => (
+                <Reveal key={item.name} delay={index * 90}>
+                  <article className="flex min-h-[13rem] flex-col rounded-[1.5rem] border border-slate-900/10 bg-white p-6 shadow-[0_20px_50px_rgba(15,23,42,0.04)]">
+                    <h3 className="text-xl font-semibold tracking-[-0.04em] text-slate-950">{item.name}</h3>
+                    <div className="mt-3 space-y-1 text-sm leading-7 text-slate-600">
+                      {item.date ? <p>{item.date}</p> : null}
+                      <p>{item.issuer}</p>
+                    </div>
+                  </article>
+                </Reveal>
               ))}
             </div>
           </div>
