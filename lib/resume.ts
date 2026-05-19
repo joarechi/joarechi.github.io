@@ -136,7 +136,7 @@ const resumeData: ResumeData = {
       tech: ["LibreChat", "RAG", "Vector DB", "LLM"],
     },
     {
-      title: "WinForm 솔루션 운영 및 Java API 전환",
+      title: "Java Spring 리뉴얼",
       period: "2021.01 ~ 2023.12",
       role: "C# WinForm 기반 마켓 관리 솔루션과 Windows Service 백엔드를 Java Spring Boot API로 전환했습니다.",
       problem: "OS 종속 구조와 레거시 인터페이스 때문에 유지보수와 확장이 어려웠습니다.",

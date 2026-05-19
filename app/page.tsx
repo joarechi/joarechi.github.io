@@ -41,7 +41,7 @@ function BadgeList({ items }: { items: string[] }) {
 
 function StatCard({ value, label, desc }: { value: string; label: string; desc: string }) {
   return (
-    <article className="rounded-[1.5rem] border border-slate-900/10 bg-white/90 p-5 shadow-[0_20px_50px_rgba(15,23,42,0.05)] backdrop-blur">
+    <article className="rounded-[1.5rem] border border-slate-900/10 bg-white p-5 shadow-[0_20px_50px_rgba(15,23,42,0.05)]">
       <div className="text-3xl font-semibold tracking-[-0.08em] text-slate-950">{value}</div>
       <div className="mt-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">{label}</div>
       <p className="mt-3 text-sm leading-7 text-slate-600">{desc}</p>
@@ -309,7 +309,7 @@ export default async function Home() {
           </div>
 
           <aside
-            className="hero-enter rounded-[2rem] border border-slate-900/10 bg-white/85 p-6 shadow-[0_20px_50px_rgba(15,23,42,0.05)] backdrop-blur"
+            className="hero-enter rounded-[2rem] border border-slate-900/10 bg-white p-6 shadow-[0_20px_50px_rgba(15,23,42,0.05)]"
             style={{ animationDelay: "120ms" }}
           >
             <div className="rounded-[1.5rem] border border-[#d8e3df] bg-[#fbf8f2] p-5">
@@ -331,7 +331,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="about" className="border-t border-slate-900/10 bg-white/35 py-20">
+      <section id="about" className="border-t border-slate-900/10 bg-white py-20">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <SectionTitle title="ABOUT" subtitle="기술로 비즈니스의 연속성을 확보하고, 팀의 성장을 설계합니다." />
@@ -387,7 +387,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="timeline" className="border-t border-slate-900/10 bg-white/35 py-20">
+      <section id="timeline" className="border-t border-slate-900/10 bg-white py-20">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <SectionTitle title="TIMELINE" />
@@ -400,6 +400,9 @@ export default async function Home() {
                 .map((company, index) => (
                 <Reveal key={`${company.company}-${company.period}`} delay={index * 70}>
                   <article className="min-w-[22rem] rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
+                    <p className="text-xs font-medium tracking-[-0.03em] text-slate-500">
+                      {company.company}
+                    </p>
                     <div className="flex items-center gap-2">
                       <span className="h-2.5 w-2.5 rounded-full bg-slate-400" />
                       <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-400">
@@ -431,7 +434,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="projects" className="border-t border-slate-900/10 bg-white/35 py-20">
+      <section id="projects" className="border-t border-slate-900/10 bg-white py-20">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <SectionTitle title="PROJECTS" subtitle="대표 프로젝트" />
@@ -462,7 +465,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="education" className="border-t border-slate-900/10 bg-white/35 py-20">
+      <section id="education" className="border-t border-slate-900/10 bg-white py-20">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <SectionTitle title="EDUCATION / CERTIFICATIONS" subtitle="학력 / 자격증" />
