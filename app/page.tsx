@@ -86,7 +86,7 @@ function getYearSummaries(items: { title: string; period: string }[]) {
     return acc;
   }, new Map());
 
-  return [...groups.entries()]
+  return Array.from(groups.entries())
     .sort(([a], [b]) => Number(b) - Number(a))
     .map(([year, titles]) => ({
       year,
