@@ -70,8 +70,8 @@ export type ResumeData = {
 
 const resumeData: ResumeData = {
   name: "조두현",
-  role: "11년 차 풀스택 개발자 / 팀장",
-  status: "재직중",
+  role: "11년 차 풀스택 개발자",
+  status: "구직중",
   location: "Seoul, Korea",
   email: "joarechi@gmail.com",
   github: "https://github.com/joarechi",
@@ -148,7 +148,7 @@ const resumeData: ResumeData = {
   career: [
     {
       company: "가비아씨엔에스",
-      period: "2020.11 ~ 재직중",
+      period: "2020.11 ~ 2026.05",
       role: "풀스택 개발자 / 팀장",
       domains: "이커머스 SaaS, 상품 관리, 주문/배송, AI 서비스, 클라우드 운영",
       intro:
